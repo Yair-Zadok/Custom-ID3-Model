@@ -4,7 +4,7 @@ My take on the ID3 algorithm, modified to increase prediction accuracy by using 
 The model was designed to aid applications dealing with limited quantities of data, as such it takes in a large similar secondary training data
 set, then adjust information gain values used in the decision tree building process to increase accuracy.
 
-All modifying theory and implementation is 100% original
+All modifying theory and implementation is 100% original.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
