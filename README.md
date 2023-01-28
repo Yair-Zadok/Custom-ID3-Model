@@ -20,7 +20,7 @@ No rigourous testing was done, however by experimentation I noticed a roughly 5-
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 How to use:
-1. Download all libraries used: nltk, numpy, pandas
-2. Make sure all provided CSV files, 'Custom_ID3.py', and 'Phrase_WuPalmer.py' are all in the same location
-2. Use the function 'predictor(test, tree)' with parameter 'tree' set to 'build_tree(df, secondary_df)' (Detailed in-code examples provided)
-3. Use the function 'accuracy(test_df, primary_df, secondary_df)' with the parameter 'test_df' as a dataset you wish to test accuracy against (Detailed in-code examples provided)
+1. Download all libraries used: nltk, numpy, pandas.
+2. Make sure all provided CSV files, 'Custom_ID3.py', and 'Phrase_WuPalmer.py' are all in the same location.
+2. Use the function 'predictor(test, tree)' with parameter 'tree' set to 'build_tree(df, secondary_df)' (Detailed in-code examples provided).
+3. Use the function 'accuracy(test_df, primary_df, secondary_df)' with the parameter 'test_df' as a dataset you wish to test accuracy against (Detailed in-code examples provided).
