@@ -14,10 +14,11 @@ def entropy(df):
     for value in unique_values:
         probability = df[dependant_variable].value_counts()[value]/len(df[dependant_variable])
         entropy += -probability*np.log2(probability)
+        
     return entropy
 
 
-# Calculates the entropy of the dependant variable in a given dataframe
+# Calculates the entropy of an attribute in a given dataframe
 def find_entropy_attribute(df, attribute):
     target_class = df.keys()[-1] 
     target_class_values = df[target_class].unique() 
@@ -34,10 +35,10 @@ def find_entropy_attribute(df, attribute):
             for target_class_value in target_class_values:
                 numerator = len(df[(df[attribute] == attribute_value) & (df[target_class] == target_class_value)])
                 denominator = len(df[df[attribute] == attribute_value])
-                probability = numerator/(denominator+np.finfo('float').eps)
-                entropy += -probability*np.log2(probability+np.finfo('float').eps)
+                probability = numerator / (denominator + np.finfo('float').eps)
+                entropy += -probability * np.log2(probability + np.finfo('float').eps)
 
-            probability_of_attribute_value = denominator/len(df)
+            probability_of_attribute_value = denominator / len(df)
             overall_entropy += -probability_of_attribute_value*entropy
 
         return abs(overall_entropy)
@@ -56,9 +57,10 @@ def find_entropy_attribute(df, attribute):
             for target_class_value in target_class_values: 
                 numerator = len(df[(attribute_value.left <= df[attribute]) & (df[attribute] <= attribute_value.right) & (df[target_class] == target_class_value)])
                 denominator = len(df[(attribute_value.left <= df[attribute]) & (df[attribute] <= attribute_value.right)])
-                probability = numerator/(denominator+np.finfo('float').eps)
-                entropy += -probability*np.log2(probability+np.finfo('float').eps)
-            probability_of_attribute_value = denominator/len(df)
+                probability = numerator / (denominator+np.finfo('float').eps)
+                entropy += -probability * np.log2(probability + np.finfo('float').eps)
+                
+            probability_of_attribute_value = denominator / len(df)
             overall_entropy += -probability_of_attribute_value*entropy
 
         return abs(overall_entropy)
@@ -130,6 +132,7 @@ def build_tree(df, secondary_df, tree=None):
         else:
             # If the sub-dataframe is not pure, call the function recursively on the sub-dataframe
             tree[best_attribute][value] = build_tree(sub_table, secondary_df)
+            
     return tree
 
 
